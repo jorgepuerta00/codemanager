@@ -45,11 +45,10 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## calling Api 
+## calling Api using posman or thunder client
 
-```using posman or thunder client
+```
 # query params ex: localhost:3000/code?code=8480000278623
-
 result: {
   "mercacode": "27862"
 }
