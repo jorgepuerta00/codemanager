@@ -45,7 +45,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## calling Api using posman or thunder client
+## calling Api using postman or thunder client
 
 ```
 # query params ex: localhost:3000/code?code=8480000278623
