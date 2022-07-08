@@ -1,4 +1,5 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, HttpException, Query } from '@nestjs/common';
+import { ValidResponse } from '@src/Utils/CustomExceptions/CustomException';
 import { Code } from '../../Domain/Code/code';
 import { CodeService } from './code.service';
 import { CodeDTO } from './dto/codeDTO';
@@ -8,7 +9,7 @@ export class CodeController {
   constructor(private readonly codeService: CodeService) {}
 
   @Get()
-  getCodeInfo(@Query() params: CodeDTO): any {
+  getCodeInfo(@Query() params: CodeDTO): ValidResponse | HttpException {
     return this.codeService.getCodeInfo(params.code);
   }
 }
