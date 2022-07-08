@@ -6,8 +6,13 @@ export class CodeSpecificationException extends HttpException {
   }
 }
 
-export class ValidResponse extends HttpException {
-  constructor(msg: any) {
-    super(msg, HttpStatus.OK);
+export interface IValidResponse {
+  result: any
+}
+
+export class ValidResponse implements IValidResponse {
+  result: any;
+  constructor(result: any) {
+    this.result = result;
   }
 }

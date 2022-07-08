@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { CodeSpecificationException } from '../../Utils/CustomExceptions/CustomException';
+import { CodeSpecificationException, IValidResponse } from '../../Utils/CustomExceptions/CustomException';
 import { CodeService } from './code.service';
 
 describe('AppController', () => {
@@ -84,18 +84,24 @@ describe('AppController', () => {
 
 });
 
-const resultOne = {
-  mercacode: "27862",
+const resultOne: IValidResponse = {
+  result: {
+    mercacode: "27862",
+  }
 }
 
-const resultTwo = {
-  mercacode: "69664",
-  price: "00199",
+const resultTwo: IValidResponse = {
+  result: {
+    mercacode: "69664",
+    price: "00199",
+  }
 }
 
-const resultThree = {
-  mercacode: "03649",
-  weight: "00330",
-  pvp: "00165",
-  price: "00054",
+const resultThree: IValidResponse = {
+  result: {
+    mercacode: "03649",
+    weight: "00330",
+    pvp: "00165",
+    price: "00054",
+  }
 }

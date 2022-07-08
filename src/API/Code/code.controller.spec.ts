@@ -1,4 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { IValidResponse } from '../../Utils/CustomExceptions/CustomException';
 import { CodeController } from './code.controller';
 import { CodeService } from './code.service';
 import { CodeDTO } from './dto/codeDTO';
@@ -19,15 +20,15 @@ describe('AppController', () => {
     expect(controller).toBeDefined();
   });
 
-  it('should return "Hello World!"', () => {
+  it('should return Mercadona Product', () => {
     expect(controller.getCodeInfo(paramsMercadonaProducts)).toMatchObject(resultOne);
   });
 
-  it('should return "Hello World!"', () => {
+  it('should return Variable Weight Product', () => {
     expect(controller.getCodeInfo(paramsVariableWeightProducts)).toMatchObject(resultTwo);
   });
 
-  it('should return "Hello World!"', () => {
+  it('should return Bulk Product', () => {
     expect(controller.getCodeInfo(paramBulkProducts)).toMatchObject(resultThree);
   });
 
@@ -45,18 +46,24 @@ const paramBulkProducts: CodeDTO = {
   code: '230036490033000165000542'
 }
 
-const resultOne = {
-  mercacode: "27862",
+const resultOne: IValidResponse = {
+  result: {
+    mercacode: "27862",
+  }
 }
 
-const resultTwo = {
-  mercacode: "69664",
-  price: "00199",
+const resultTwo: IValidResponse = {
+  result: {
+    mercacode: "69664",
+    price: "00199",
+  }
 }
 
-const resultThree = {
-  mercacode: "03649",
-  weight: "00330",
-  pvp: "00165",
-  price: "00054",
+const resultThree: IValidResponse = {
+  result: {
+    mercacode: "03649",
+    weight: "00330",
+    pvp: "00165",
+    price: "00054",
+  }
 }
